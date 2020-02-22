@@ -24,11 +24,11 @@ const Users = databaseConfig.define('users', {
 async function insertUser(dataUser) {
     try {
         const syncro = await Users.sync();
-       
+
         return Users.create(dataUser);
     } catch (error) {
-       
-        return {msg: 'problema ao sincronizar model com banco de dados', retorno: 'retornando direto da função'}
+
+        return { msg: 'problema ao sincronizar model com banco de dados', retorno: 'retornando direto da função', error }
     }
 
 }
